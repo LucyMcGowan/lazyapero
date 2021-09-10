@@ -29,7 +29,7 @@ links:
 "
   }, .open = "<", .close = ">")
   dir <- tolower(gsub(" ", "_", d$where))
-  walk(dir, ~ function(dir) {
+  purrr::walk(dir, ~ function(dir) {
   if (!dir.exists(glue::glue("content/talk/{dir}"))) {
     dir.create(glue::glue("content/talk/{dir}"))
   }
