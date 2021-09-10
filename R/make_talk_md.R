@@ -29,10 +29,10 @@ links:
 "
   }, .open = "<", .close = ">")
   dir <- tolower(gsub(" ", "_", d$where))
-  purrr::walk(dir, ~ function(dir) {
-  if (!dir.exists(glue::glue("content/talk/{dir}"))) {
-    dir.create(glue::glue("content/talk/{dir}"))
-  }
+  purrr::map(dir, function(x) {
+    if (!dir.exists(glue::glue("content/talk/{x}"))) {
+      dir.create(glue::glue("content/talk/{x}"))
+    }
   })
   file_name <- glue::glue("content/talk/{dir}/index.md")
   purrr::walk2(md, file_name, writeLines)
