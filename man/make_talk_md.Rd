@@ -4,14 +4,12 @@
 \alias{make_talk_md}
 \title{Make markdown files for talks}
 \usage{
-make_talk_md(dir, id = "1-PItelqpv0Sb_LdiEDqb8O3D_Roii5nVTL07IRVbRtA")
+make_talk_md(id = "1-PItelqpv0Sb_LdiEDqb8O3D_Roii5nVTL07IRVbRtA")
 }
 \arguments{
-\item{dir}{The directory you would like the markdown documents to be saved in}
-
 \item{id}{Your Google Sheet id}
 }
 \description{
-This function will create markdown files in the Hugo Academic style for talks
+This function will create markdown files in the Hugo Apero style for talks
 specified in a Google Sheet.
 }
