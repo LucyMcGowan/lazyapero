@@ -21,7 +21,7 @@ make_interview_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU
  ifelse(d$description == "write-up", "<i class=\'fas fa-newspaper\'></i>",
  ifelse(d$description == "quoted", "<i class=\'fas fa-quote-left\'></i>",
  ifelse(d$description == "televised interview", "<i class=\'fas fa-tv\'></i>",
- ifelse(d$description == "radio", "<i class=\'fas fa-headphones\'></i>", "")))))} [{d$title}]({d$link}) in {d$publication} [{d$year}] </br>
+ ifelse(d$description == "radio", "<i class=\'fas fa-headphones\'></i>", "")))))} [{fix_quote(d$title)}]({d$link}) in {d$publication} [{d$year}] </br></br>
 
 '
   })
