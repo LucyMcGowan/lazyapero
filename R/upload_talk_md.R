@@ -38,10 +38,10 @@ categories:
 excerpt: \"<fix_quote(abstract)>\"
 links:
 <ifelse(!is.na(slides), glue::glue('\\n- icon: images\\n  icon_pack: fas\\n  name: slides\\n  url: {slides}'), '')>
-<ifelse(!is.na(video), glue::glue('\\n- icon: images\\n  icon_pack: fas\\n  name: video\\n  url: {video}'), '')>
-<ifelse(!is.na(poster), glue::glue('\\n- icon: images\\n  icon_pack: fas\\n  name: sticky-note\\n  url: {poster}'), '')>
-<ifelse(!is.na(details), glue::glue('\\n- icon: images\\n  icon_pack: fas\\n  name: link\\n  url: {details}'), '')>
-<ifelse(!is.na(pdf), glue::glue('\\n- icon: images\\n  icon_pack: fas\\n  name: file\\n  url: {pdf}'), '')>
+<ifelse(!is.na(video), glue::glue('\\n- icon: video\\n  icon_pack: fas\\n  name: video\\n  url: {video}'), '')>
+<ifelse(!is.na(poster), glue::glue('\\n- icon: sticky-note\\n  icon_pack: fas\\n  name: poster\\n  url: {poster}'), '')>
+<ifelse(!is.na(details), glue::glue('\\n- icon: link\\n  icon_pack: fas\\n  name: details\\n  url: {details}'), '')>
+<ifelse(!is.na(pdf), glue::glue('\\n- icon: file\\n  icon_pack: fas\\n  name: pdf\\n  url: {pdf}'), '')>
 
 ---
 "
