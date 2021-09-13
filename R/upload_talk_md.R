@@ -13,6 +13,7 @@ upload_talk_md <- function(id = "1-PItelqpv0Sb_LdiEDqb8O3D_Roii5nVTL07IRVbRtA") 
   purrr::map(dir, function(x) {
     if (!dir.exists(glue::glue("content/talk/{x}"))) {
       dir.create(glue::glue("content/talk/{x}"))
+      print("Creating folder glue::glue('content/talk/{x}')")
     }
   })
   file_name <- glue::glue("content/talk/{dir}/index.md")
