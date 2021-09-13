@@ -46,5 +46,5 @@ links:
 ---
 "
   }, .open = "<", .close = ">")
-  list(md, d)
+  list(md = md, d = d)
 }
