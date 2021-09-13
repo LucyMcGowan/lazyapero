@@ -1,0 +1,29 @@
+#' Make markdown files for interviews
+#'
+#' This function will create markdown files in the Hugo Apero style for interviews
+#' specified in a Google Sheet.
+#'
+#' @param id Your Google Sheet id
+#' @export
+upload_interview_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU") {
+  md <- make_interview_md(id = id)
+  writeLines(md, "content/interviews/main/index.md")
+}
+
+make_interview_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU") {
+  d <- googlesheets4::range_read(googlesheets4::as_sheets_id(id))
+  d <- d[d$type == "press", ]
+  d$year <- as.numeric(d$year)
+  d <- d[order(-d$year), ]
+  glue::glue({
+    "
+<ifelse(d$description == 'podcast', '<i class=\"fas fa-microphone-alt\"></i>',
+ ifelse(d$description == 'write-up', '<i class=\"fas fa-newspaper\"></i>',
+ ifelse(d$description == 'quoted', '<i class=\"fas fa-quote-left\"></i>',
+ ifelse(d$description == 'televised interview', '<i class=\"fas fa-tv\"></i>',
+ ifelse(d$description == 'radio', '<i class=\"fas fa-headphones\"></i>', '')))))> [<d$title>](<d$link>) in <d$publication> [<d$year>]
+
+"
+  }, .open = "<", .close = ">")
+}
+
