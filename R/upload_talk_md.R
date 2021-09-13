@@ -50,5 +50,5 @@ links:
 }
 
 fix_quote <- function(x) {
-  gsub('"', '\\\"', x)
+  gsub('"', '\\\\"', x)
 }
