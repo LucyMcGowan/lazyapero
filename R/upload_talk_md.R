@@ -35,7 +35,7 @@ date_end: <end>
 categories:
  - <ifelse(invited == 1, 'Invited', 'Contributed')>
  - <what>
-excerpt: \"<abstract>\"
+excerpt: \"<fix_quote(abstract)>\"
 links:
 <ifelse(!is.na(slides), glue::glue('\\n- icon: images\\n  icon_pack: fas\\n  name: slides\\n  url: {slides}'), '')>
 <ifelse(!is.na(video), glue::glue('\\n- icon: images\\n  icon_pack: fas\\n  name: video\\n  url: {video}'), '')>
@@ -47,4 +47,8 @@ links:
 "
   }, .open = "<", .close = ">")
   list(md = md, d = d)
+}
+
+fix_quote <- function(x) {
+  gsub('"', '\\\"', x)
 }
