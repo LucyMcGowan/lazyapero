@@ -2,5 +2,5 @@
 
 export(make_paper_bib)
 export(make_paper_md)
-export(upload_interview_md)
+export(upload_media_md)
 export(upload_talk_md)

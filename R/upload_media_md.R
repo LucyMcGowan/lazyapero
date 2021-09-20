@@ -1,16 +1,16 @@
-#' Make markdown files for interviews
+#' Make markdown files for media
 #'
-#' This function will create markdown files in the Hugo Apero style for interviews
+#' This function will create markdown files in the Hugo Apero style for media
 #' specified in a Google Sheet.
 #'
 #' @param id Your Google Sheet id
 #' @export
-upload_interview_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU") {
-  md <- make_interview_md(id = id)
-  writeLines(md, "content/interviews/main/index.md")
+upload_media_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU") {
+  md <- make_media_md(id = id)
+  writeLines(md, "content/media/main/index.md")
 }
 
-make_interview_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU") {
+make_media_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU") {
   d <- googlesheets4::range_read(googlesheets4::as_sheets_id(id))
   d <- d[d$type == "press", ]
   d$year <- as.numeric(d$year)
