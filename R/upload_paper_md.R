@@ -38,7 +38,7 @@ categories:
     ifelse(pub_type == 6, 'Book section',
     ifelse(pub_type == 7, 'Thesis',
     ifelse(pub_type == 8, 'Op-ed',
-    ifelse(pub_type == 9, 'Blog post'), '')))))))>
+    ifelse(pub_type == 9, 'Blog post', ''))))))))>
 excerpt: \"<fix_quote(abstract)>\"
 links:
 <ifelse(!is.na(url_source), glue::glue('\\n- icon: link\\n  icon_pack: fas\\n  name: link\\n  url: {url_source}'), '')>
