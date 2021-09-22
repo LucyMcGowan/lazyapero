@@ -20,7 +20,7 @@ upload_paper_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU")
   purrr::walk2(md, file_name, writeLines)
 }
 
-make_talk_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU") {
+make_paper_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU") {
   d <- googlesheets4::range_read(googlesheets4::as_sheets_id(id))
   d <- d[d$type %in% c("article", "press"), ]
   md <- glue::glue_data(d, {
