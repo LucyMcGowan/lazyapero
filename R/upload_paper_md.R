@@ -31,6 +31,8 @@ make_paper_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU") {
 title: \"<title>\"
 author: \"<authors>\"
 date: <date>
+link_out: <ifelse(pub_type %in% c(2, 3, 4, 5, 6, 7), 'false', 'true')>
+i: <link>
 categories:
  - <ifelse(pub_type == 2, 'Peer Reviewed Article',
     ifelse(pub_type == 3, 'Editorial/Reply',
