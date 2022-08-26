@@ -9,7 +9,7 @@ upload_talk_md <- function(id = "1-PItelqpv0Sb_LdiEDqb8O3D_Roii5nVTL07IRVbRtA") 
   o <- make_talk_md(id = id)
   md <- o$md
   d <- o$d
-  dir <- tolower(gsub(" ", "_", d$where))
+  dir <- tolower(gsub("[/]", "", gsub(" ", "_", d$where)))
   purrr::map(dir, function(x) {
     if (!dir.exists(glue::glue("content/talk/{x}"))) {
       dir.create(glue::glue("content/talk/{x}"))
