@@ -47,6 +47,7 @@ links:
 <ifelse(!is.na(url_source), glue::glue('\\n- icon: link\\n  icon_pack: fas\\n  name: link\\n  url: {url_source}'), '')>
 <ifelse(!is.na(link), glue::glue('\\n- icon: link\\n  icon_pack: fas\\n  name: link\\n  url: {link}'), '')>
 <ifelse(!is.na(url_pdf), glue::glue('\\n- icon: file\\n  icon_pack: fas\\n  name: pdf\\n  url: {url_pdf}'), '')>
+<ifelse(!is.na(url_preprint), glue::glue('\\n- icon: link\\n  icon_pack: fas\\n  name: link\\n  url: {url_preprint}'), '')>
 
 ---
 
