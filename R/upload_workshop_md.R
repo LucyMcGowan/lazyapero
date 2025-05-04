@@ -29,7 +29,7 @@ make_workshop_md <- function(id = "1-PItelqpv0Sb_LdiEDqb8O3D_Roii5nVTL07IRVbRtA"
   d <- googlesheets4::range_read(googlesheets4::as_sheets_id(id))
   d <- d[d[[filter_column]] == filter_term, ]
   d <- d[d$manual == 0, ]
-  d$date <- as.Date(as.character(d$start))
+  d$date <- purrr::map(d$start, as.Date) |> unlist() |> as.Date()
   d$upcoming <- ifelse(d$date >= Sys.Date(), 1, 0)
   md <- glue::glue_data(d, {
     "---
@@ -45,8 +45,8 @@ categories:
  - <what>
 excerpt: \"<fix_quote(abstract)>\"
 links:
-<ifelse(upcoming == 1, glue::glue('\\n- icon: exclamation\\n icon_pack: fas\\n name: Upcoming!'), '')>
-<ifelse(!is.na(details), glue::glue('\\n- icon: link\\n  icon_pack: fas\\n  name: {ifelse(upcoming, 'Register', 'details')}\\n  url: {details}'), '')>
+<ifelse(upcoming == 1 & !is.na(upcoming), glue::glue('\\n- icon: exclamation\\n icon_pack: fas\\n name: Upcoming!'), '')>
+<ifelse(!is.na(details), glue::glue('\\n- icon: link\\n  icon_pack: fas\\n  name: {ifelse(upcoming == 1 & !is.na(upcoming), \"Register\", \"details\")}\\n  url: {details}'), '')>
 <ifelse(!is.na(slides), glue::glue('\\n- icon: images\\n  icon_pack: fas\\n  name: slides\\n  url: {slides}'), '')>
 <ifelse(!is.na(video), glue::glue('\\n- icon: video\\n  icon_pack: fas\\n  name: video\\n  url: {video}'), '')>
 <ifelse(!is.na(poster), glue::glue('\\n- icon: sticky-note\\n  icon_pack: fas\\n  name: poster\\n  url: {poster}'), '')>
