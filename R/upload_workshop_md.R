@@ -45,7 +45,7 @@ categories:
  - <what>
 excerpt: \"<fix_quote(abstract)>\"
 links:
-<ifelse(upcoming == 1 & !is.na(upcoming), glue::glue('\\n- icon: exclamation\\n icon_pack: fas\\n name: Upcoming!'), '')>
+<ifelse(upcoming == 1 & !is.na(upcoming), glue::glue('\\n- icon: exclamation\\n  icon_pack: fas\\n  name: Upcoming!'), '')>
 <ifelse(!is.na(details), glue::glue('\\n- icon: link\\n  icon_pack: fas\\n  name: {ifelse(upcoming == 1 & !is.na(upcoming), \"Register\", \"details\")}\\n  url: {details}'), '')>
 <ifelse(!is.na(slides), glue::glue('\\n- icon: images\\n  icon_pack: fas\\n  name: slides\\n  url: {slides}'), '')>
 <ifelse(!is.na(video), glue::glue('\\n- icon: video\\n  icon_pack: fas\\n  name: video\\n  url: {video}'), '')>
