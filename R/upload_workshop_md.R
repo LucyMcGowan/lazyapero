@@ -20,7 +20,7 @@ upload_workshop_md <- function(id = "1-PItelqpv0Sb_LdiEDqb8O3D_Roii5nVTL07IRVbRt
       print(glue::glue("Creating folder 'content/workshops/{x}'"))
     }
   })
-  file_name <- glue::glue("content/talk/{dir}/index.md")
+  file_name <- glue::glue("content/workshops/{dir}/index.md")
   purrr::walk2(md, file_name, writeLines)
 }
 
