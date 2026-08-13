@@ -12,7 +12,6 @@ upload_media_md <- function(id = "1qIk2On4DxODKH9CP9mnqNBfZdtOqB5hLCJ_J-UQ-L-o")
 
 make_media_md <- function(id = "1qIk2On4DxODKH9CP9mnqNBfZdtOqB5hLCJ_J-UQ-L-o") {
   d <- googlesheets4::range_read(googlesheets4::as_sheets_id(id))
-  d <- d[d$type == "press", ]
   d$id <- 1:nrow(d)
   d <- d[rev(d$id), ]
   d$year <- as.numeric(d$year)
@@ -22,6 +21,7 @@ make_media_md <- function(id = "1qIk2On4DxODKH9CP9mnqNBfZdtOqB5hLCJ_J-UQ-L-o") {
 {ifelse(d$description == "podcast", "<i class=\'fas fa-microphone-alt\'></i>",
  ifelse(d$description == "write-up", "<i class=\'fas fa-newspaper\'></i>",
  ifelse(d$description == "op-ed", "<i class=\'fas fa-pen-alt\'></i>",
+ ifelse(d$description == "article", "<i class=\'fas fa-pen-alt\'></i>",
  ifelse(d$description == "quoted", "<i class=\'fas fa-quote-left\'></i>",
  ifelse(d$description == "televised interview", "<i class=\'fas fa-tv\'></i>",
  ifelse(d$description == "radio", "<i class=\'fas fa-headphones\'></i>", ""))))))} [{fix_quote(d$title)}]({d$link}) in {d$publication} [{d$year}] *{d$description}* </br></br>
