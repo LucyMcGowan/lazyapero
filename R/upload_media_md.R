@@ -24,7 +24,7 @@ make_media_md <- function(id = "1qIk2On4DxODKH9CP9mnqNBfZdtOqB5hLCJ_J-UQ-L-o") {
  ifelse(d$description == "article", "<i class=\'fas fa-pen-alt\'></i>",
  ifelse(d$description == "quoted", "<i class=\'fas fa-quote-left\'></i>",
  ifelse(d$description == "televised interview", "<i class=\'fas fa-tv\'></i>",
- ifelse(d$description == "radio", "<i class=\'fas fa-headphones\'></i>", ""))))))} [{fix_quote(d$title)}]({d$link}) in {d$publication} [{d$year}] *{d$description}* </br></br>
+ ifelse(d$description == "radio", "<i class=\'fas fa-headphones\'></i>", "")))))))} [{fix_quote(d$title)}]({d$link}) in {d$publication} [{d$year}] *{d$description}* </br></br>
 
 '
   })
