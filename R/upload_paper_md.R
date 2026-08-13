@@ -21,7 +21,7 @@ upload_paper_md <- function(id = "1_6rm_Us8Q_d8V_xMI3yzCJZ0ENWNDJcYcMc7JVeJDtI")
 }
 
 make_paper_md <- function(id = "1_6rm_Us8Q_d8V_xMI3yzCJZ0ENWNDJcYcMc7JVeJDtI") {
-  d <- googlesheets4::range_read(googlesheets4::as_sheets_id(id))
+  d <- googlesheets4::range_read(googlesheets4::as_sheets_id(id), col_types = "ccccccncccccnclcccccccccc")
   d <- d[d$type == "article" | (d$type == "press" & d$description %in% c("article", "op-ed")) | d$type == "blog" | d$type == "preprint", ]
   d$year <- as.numeric(d$year)
   md <- glue::glue_data(d, {
