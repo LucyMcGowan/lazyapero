@@ -5,7 +5,7 @@
 #'
 #' @param id Your Google Sheet id
 #' @export
-upload_paper_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU") {
+upload_paper_md <- function(id = "1_6rm_Us8Q_d8V_xMI3yzCJZ0ENWNDJcYcMc7JVeJDtI") {
   o <- make_paper_md(id = id)
   md <- o$md
   d <- o$d
@@ -20,7 +20,7 @@ upload_paper_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU")
   purrr::walk2(md, file_name, writeLines)
 }
 
-make_paper_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU") {
+make_paper_md <- function(id = "1_6rm_Us8Q_d8V_xMI3yzCJZ0ENWNDJcYcMc7JVeJDtI") {
   d <- googlesheets4::range_read(googlesheets4::as_sheets_id(id))
   d <- d[d$type == "article" | (d$type == "press" & d$description %in% c("article", "op-ed")) | d$type == "blog" | d$type == "preprint", ]
   d$year <- as.numeric(d$year)

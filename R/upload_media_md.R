@@ -5,12 +5,12 @@
 #'
 #' @param id Your Google Sheet id
 #' @export
-upload_media_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU") {
+upload_media_md <- function(id = "1qIk2On4DxODKH9CP9mnqNBfZdtOqB5hLCJ_J-UQ-L-o") {
   md <- make_media_md(id = id)
   writeLines(md, "content/media/main/index.md")
 }
 
-make_media_md <- function(id = "1HPQDH3tOXtZb1DV--8wR9CKAzUz5aywWc2vM3OQ5SrU") {
+make_media_md <- function(id = "1qIk2On4DxODKH9CP9mnqNBfZdtOqB5hLCJ_J-UQ-L-o") {
   d <- googlesheets4::range_read(googlesheets4::as_sheets_id(id))
   d <- d[d$type == "press", ]
   d$id <- 1:nrow(d)
