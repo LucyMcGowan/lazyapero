@@ -5,7 +5,7 @@
 #'
 #' @param id Your Google Sheet id
 #' @export
-upload_talk_md <- function(id = "1-PItelqpv0Sb_LdiEDqb8O3D_Roii5nVTL07IRVbRtA") {
+upload_talk_md <- function(id = "1SVjXOzS49fwmYrpboVi4TJ20d9qNMOn-Pwy2g86jyZ4") {
   o <- make_talk_md(id = id)
   md <- o$md
   d <- o$d
@@ -21,7 +21,7 @@ upload_talk_md <- function(id = "1-PItelqpv0Sb_LdiEDqb8O3D_Roii5nVTL07IRVbRtA") 
   purrr::walk2(md, file_name, writeLines)
 }
 
-make_talk_md <- function(id = "1-PItelqpv0Sb_LdiEDqb8O3D_Roii5nVTL07IRVbRtA") {
+make_talk_md <- function(id = "1SVjXOzS49fwmYrpboVi4TJ20d9qNMOn-Pwy2g86jyZ4") {
   d <- googlesheets4::range_read(googlesheets4::as_sheets_id(id))
   d <- d[d$manual == 0, ]
   md <- glue::glue_data(d, {

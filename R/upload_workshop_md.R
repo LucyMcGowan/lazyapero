@@ -7,7 +7,7 @@
 #' @param filter_column column to filter sheet by
 #' @param filter_term term to filter column specified in `filter_column`
 #' @export
-upload_workshop_md <- function(id = "1-PItelqpv0Sb_LdiEDqb8O3D_Roii5nVTL07IRVbRtA",
+upload_workshop_md <- function(id = "1SVjXOzS49fwmYrpboVi4TJ20d9qNMOn-Pwy2g86jyZ4",
                            filter_column = "what", filter_term = "Workshop") {
   o <- make_workshop_md(id = id, filter_column = filter_column, filter_term = filter_term)
   md <- o$md
@@ -24,7 +24,7 @@ upload_workshop_md <- function(id = "1-PItelqpv0Sb_LdiEDqb8O3D_Roii5nVTL07IRVbRt
   purrr::walk2(md, file_name, writeLines)
 }
 
-make_workshop_md <- function(id = "1-PItelqpv0Sb_LdiEDqb8O3D_Roii5nVTL07IRVbRtA",
+make_workshop_md <- function(id = "1SVjXOzS49fwmYrpboVi4TJ20d9qNMOn-Pwy2g86jyZ4",
                              filter_column, filter_term) {
   d <- googlesheets4::range_read(googlesheets4::as_sheets_id(id))
   d <- d[d[[filter_column]] == filter_term, ]
